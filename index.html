@@ -81,27 +81,10 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-test = function(){
-document.getElementById("one").checked = true;
-document.getElementById("two").checked = true;
-document.getElementById("three").checked = true;
-document.getElementById("four").checked = true;
-document.getElementById("ClassifierA").checked = true;
-document.getElementById("ClassifierB").checked = true;
-document.getElementById("ClassifierC").checked = true;
-document.getElementById("ClassifierD").checked = true;
-};
-
-function myFunction() {
-    var y = "one";
-    var x = document.getElementById(y).checked;
-    document.getElementById("demo").innerHTML = x;
-}
 
 makeplot = function() {
 
-
-
+svg.selectAll("*").remove();
 
 d3.csv("data.csv", function(error, data) {
 
@@ -181,6 +164,25 @@ d3.selectAll('.classifier_ctrl').on('change', function() {
         makeplot();
     }        
 });
+
+
+test = function(){
+document.getElementById("one").checked = true;
+document.getElementById("two").checked = true;
+document.getElementById("three").checked = true;
+document.getElementById("four").checked = true;
+document.getElementById("ClassifierA").checked = true;
+document.getElementById("ClassifierB").checked = true;
+document.getElementById("ClassifierC").checked = true;
+document.getElementById("ClassifierD").checked = true;
+};
+
+function myFunction() {
+    var y = "one";
+    var x = document.getElementById(y).checked;
+    document.getElementById("demo").innerHTML = x;
+}
+
 
 
 
