@@ -34,19 +34,15 @@ body {
 </div>
 
 <div>
-<input type="checkbox" name="value" value="stat" id="one" >one<br>
-<input type="checkbox" name="value" value="stat" id="two" >two<br>
-<input type="checkbox" name="value" value="stat" id="three" >three<br>
-<input type="checkbox" name="value" value="stat" id="four" >four
+<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="one" >one<br>
+<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="two" >two<br>
+<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="three" >three<br>
+<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="four" >four
 </div>
 
 <button type="button" onclick="test()">test</button>
 <button type="button" onclick="makeplot()">Update plots</button>
 
-
-
-<button onclick="myFunction()">Try it</button>
-<p id = demo> hey</p>
 
 
 <script>
@@ -88,7 +84,9 @@ svg.selectAll("*").remove();
 
 d3.csv("data.csv", function(error, data) {
 
-
+  data = data.filter(function(row) {
+         return document.getElementById(row['Classifier']).checked;
+})
 
 
   var valnames = d3.keys(data[0]).filter(function(key) { return key !== "Classifier" && document.getElementById(key).checked});
@@ -176,12 +174,6 @@ document.getElementById("ClassifierB").checked = true;
 document.getElementById("ClassifierC").checked = true;
 document.getElementById("ClassifierD").checked = true;
 };
-
-function myFunction() {
-    var y = "one";
-    var x = document.getElementById(y).checked;
-    document.getElementById("demo").innerHTML = x;
-}
 
 
 
