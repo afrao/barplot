@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
@@ -24,21 +25,20 @@ body {
 </style>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<form>
 
+<div>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierA" >ClassifierA <br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierB" >ClassifierB <br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierC" >ClassifierC <br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierD" >ClassifierD 
+</div>
 
-<input type="checkbox" name="classifier" value="Classifier" id="ClassifierA" >ClassifierA <br>
-<input type="checkbox" name="classifier" value="Classifier" id="ClassifierB" >ClassifierB <br>
-<input type="checkbox" name="classifier" value="Classifier" id="ClassifierC" >ClassifierC <br>
-<input type="checkbox" name="classifier" value="Classifier" id="ClassifierD" >ClassifierD 
-</form>
-
-<form>
+<div>
 <input type="checkbox" name="value" value="stat" id="one" >one<br>
 <input type="checkbox" name="value" value="stat" id="two" >two<br>
 <input type="checkbox" name="value" value="stat" id="three" >three<br>
 <input type="checkbox" name="value" value="stat" id="four" >four
-</form>
+</div>
 
 <button type="button" onclick="test()">test</button>
 <button type="button" onclick="makeplot()">Update plots</button>
@@ -170,5 +170,18 @@ d3.csv("data.csv", function(error, data) {
 });
 
 };
+
+var toggleA = null;
+d3.selectAll('.classifier_ctrl').on('change', function() {
+
+    if (toggleA !== null) {
+        toggleA = null;
+    } 
+    else {
+        makeplot();
+    }        
+});
+
+
 
 </script>
