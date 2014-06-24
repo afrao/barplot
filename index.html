@@ -26,6 +26,7 @@ body {
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
+<h1> Screwdriver with no head </h1><br>
 <div>
 <input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierA" >ClassifierA <br>
 <input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierB" >ClassifierB <br>
@@ -40,7 +41,7 @@ body {
 <input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="four" >four
 </div>
 
-<button type="button" onclick="test()">test</button>
+<button type="button" onclick="test()">all</button>
 <button type="button" onclick="makeplot()">Update plots</button>
 
 
@@ -129,6 +130,8 @@ d3.csv("data.csv", function(error, data) {
       .attr("height", function(d) { return height - y(d.value); })
       .style("fill", function(d) { return color(d.name); });
 
+
+
   var legend = svg.selectAll(".legend")
       .data(valnames.slice().reverse())
     .enter().append("g")
@@ -147,6 +150,9 @@ d3.csv("data.csv", function(error, data) {
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });
+
+
+
 
 });
 
