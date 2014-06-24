@@ -52,7 +52,7 @@ makeplot = function() {
 
 svg.selectAll("*").remove();
 
-d3.csv("data4.csv", function(error, data) {
+d3.csv("classifiers.csv", function(error, data) {
 
   data = data.filter(function(row) {
          return document.getElementById(row['Classifier']).checked;
