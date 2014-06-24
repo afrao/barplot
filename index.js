@@ -1,6 +1,6 @@
 var margin = {top: 20, right: 20, bottom: 150, left: 40},
     width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 1000 - margin.top - margin.bottom;
 
 var x0 = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
@@ -22,11 +22,24 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .tickFormat(d3.format(".2s"));
 
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Value:</strong> <span style='color:yellow'>" + d.value + "</span>";
+  })
+
+
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.call(tip);
+
+
+
 
 
 makeplot = function() {
@@ -91,7 +104,9 @@ d3.csv("data4.csv", function(error, data) {
       .attr("x", function(d) { return x1(d.name); })
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); })
-      .style("fill", function(d) { return color(d.name); });
+      .style("fill", function(d) { return color(d.name); })
+      .on('mouseover',tip.show)
+      .on('mouseout',tip.hide);
 
 
 
