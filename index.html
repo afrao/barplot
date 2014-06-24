@@ -27,18 +27,27 @@ body {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
 <h1> Screwdriver with no head </h1><br>
+
 <div>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierA" >ClassifierA <br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierB" >ClassifierB <br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierC" >ClassifierC <br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="ClassifierD" >ClassifierD 
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="BernoulliNB" >BernoulliNB <br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="MultinomialNB" >MultinomialNB <br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="NearestCentroid" >NearestCentroid <br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD w/ elatistic-net penalty" >SGD w/ elatistic-net penalty <br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD (L1 penalty)" >SGD (L1 penalty)<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD (L2 penalty)" >SGD (L2 penalty)<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L1 feature select)" >LinearSVC (L1 feature select)<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L1 penalty)" >LinearSVC (L1 penalty)<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L2 penalty)" >LinearSVC (L2 penalty)<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="PassiveAgressiveClassifier" >PassiveAgressiveClassifier<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="Perceptron" >Perceptron<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="RidgeClassifier" >RidgeClassifier<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LogisticRegression" >LogisticRegression
 </div>
 
 <div>
-<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="one" >one<br>
-<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="two" >two<br>
-<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="three" >three<br>
-<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="four" >four
+<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="Score" >Score<br>
+<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="Train.Time" >Train.Time<br>
+<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="Test.Time" >Test.Time
 </div>
 
 <button type="button" onclick="test()">all</button>
@@ -61,7 +70,7 @@ var y = d3.scale.linear()
     .range([height, 0]);
 
 var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    .range(["#00FF00", "#000000", "#0000FF", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 var xAxis = d3.svg.axis()
     .scale(x0)
@@ -83,7 +92,7 @@ makeplot = function() {
 
 svg.selectAll("*").remove();
 
-d3.csv("data.csv", function(error, data) {
+d3.csv("data3.csv", function(error, data) {
 
   data = data.filter(function(row) {
          return document.getElementById(row['Classifier']).checked;
@@ -171,14 +180,7 @@ d3.selectAll('.classifier_ctrl').on('change', function() {
 
 
 test = function(){
-document.getElementById("one").checked = true;
-document.getElementById("two").checked = true;
-document.getElementById("three").checked = true;
-document.getElementById("four").checked = true;
-document.getElementById("ClassifierA").checked = true;
-document.getElementById("ClassifierB").checked = true;
-document.getElementById("ClassifierC").checked = true;
-document.getElementById("ClassifierD").checked = true;
+document.getElementsByClassName('classifier_ctrl').checked = true;
 };
 
 
