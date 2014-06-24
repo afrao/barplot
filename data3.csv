@@ -1,14 +1,16 @@
 Classifier,Score,Train.Time,Test.Time
-BernoulliNB,27,44,21
-MultinomialNB,20,32,14
-NearestCentroid,12,21,10
-SGD w/ elatistic-net penalty,11,19,9
-SGD (L1 penalty),12,3,12
-SGD (L2 penalty),12,3,12
-LinearSVC (L1 feature select),5,23,5
-LinearSVC (L1 penalty),5,23,5
-LinearSVC (L2 penalty),5,23,5
-PassiveAgressiveClassifier,4,7,1
-Perceptron,20,9,4
-RidgeClassifier,10,17,16
-LogisticRegression,8,9,7
+BernoulliNB,.10,.1,.22
+MultinomialNB,.20,.32,.14
+NearestCentroid,.12,.21,.10
+SGD w/ elastic-net penalty,.11,.19,.9
+SGD (L1 penalty),.12,.3,.12
+SGD (L2 penalty),.12,.3,.12
+LinearSVC (L1 feature select),.5,.23,.5
+LinearSVC (L1 penalty),.5,.23,.5
+LinearSVC (L2 penalty),.5,.23,.5
+PassiveAggressiveClassifier,.4,.7,.1
+Perceptron,.20,.9,.4
+RidgeClassifier,.10,.17,.16
+LogisticRegression (L1 penalty),.8,.9,.7
+LogisticRegression (L2 penalty),.8,.9,.7
+LogisticRegression (L1 feature select),.8,.9,1

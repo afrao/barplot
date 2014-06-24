@@ -5,6 +5,7 @@
 
 body {
   font: 10px sans-serif;
+  background-color: #F8F8F8;
 }
 
 .axis path,
@@ -14,39 +15,73 @@ body {
   shape-rendering: crispEdges;
 }
 
-.bar {
-  fill: steelblue;
-}
-
 .x.axis path {
   display: none;
 }
 
+
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+
+
+
+
+
+
 </style>
 <body>
   <script src="http://d3js.org/d3.v3.min.js"></script>
-
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
   <h1> Screwdriver with no head </h1><br>
-  
+  <h2> Classifiers </h2>
 <div>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="BernoulliNB" checked>BernoulliNB <br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="MultinomialNB" checked>MultinomialNB <br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="NearestCentroid" checked>NearestCentroid <br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD w/ elatistic-net penalty" checked>SGD w/ elatistic-net penalty <br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD (L1 penalty)" checked>SGD (L1 penalty)<br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD (L2 penalty)" checked>SGD (L2 penalty)<br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L1 feature select)" checked>LinearSVC (L1 feature select)<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="BernoulliNB" checked>BernoulliNB 
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="MultinomialNB" checked>MultinomialNB 
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="NearestCentroid" checked>NearestCentroid 
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD w/ elastic-net penalty" checked>SGD w/ elatistic-net penalty <br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD (L1 penalty)" checked>SGD (L1 penalty)
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD (L2 penalty)" checked>SGD (L2 penalty)
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L1 feature select)" checked>LinearSVC (L1 feature select)
 <input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L1 penalty)" checked>LinearSVC (L1 penalty)<br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L2 penalty)" checked>LinearSVC (L2 penalty)<br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="PassiveAgressiveClassifier" checked>PassiveAgressiveClassifier<br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="Perceptron" checked>Perceptron<br>
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L2 penalty)" checked>LinearSVC (L2 penalty)
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="PassiveAggressiveClassifier" checked>PassiveAggressiveClassifier
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="Perceptron" checked>Perceptron
 <input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="RidgeClassifier" checked>RidgeClassifier<br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LogisticRegression" checked>LogisticRegression
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LogisticRegression (L1 feature select)" checked>LogisticRegression (L1 feature select)
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LogisticRegression (L1 penalty)" checked>LogisticRegression)
+<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LogisticRegression (L2 penalty)" checked>LogisticRegression (L2 penalty)
 </div>
 
+  <h2> Metrics </h2>
 <div>
-<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="Score" checked>Score<br>
-<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="Train.Time" checked>Train.Time<br>
+<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="Score" checked>Score
+<input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="Train.Time" checked>Train.Time
 <input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="Test.Time" checked>Test.Time
 </div>
 
