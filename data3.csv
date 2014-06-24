@@ -9,6 +9,6 @@ LinearSVC (L1 feature select),5,23,5
 LinearSVC (L1 penalty),5,23,5
 LinearSVC (L2 penalty),5,23,5
 PassiveAgressiveClassifier,4,7,1
-Perceptron,90,9,4
+Perceptron,20,9,4
 RidgeClassifier,10,17,16
 LogisticRegression,8,9,7
