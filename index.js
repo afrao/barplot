@@ -26,7 +26,7 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>Value:</strong> <span style='color:yellow'>" + d.value + "</span>";
+    return "<strong>Value:</strong> <span style='color:yellow'>" + Math.round(d.value*1000)/1000 + "</span>";
   })
 
 
