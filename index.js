@@ -66,14 +66,17 @@ d3.csv("fit_metrics.csv", function(error, data) {
         newCheckBox.type = 'checkbox';
         newCheckBox.id = stuff.Classifier; // need unique Ids!
         newCheckBox.className = 'classifier_ctrl';
+	newCheckBox.name = "button";
+	newCheckBox.checked = true;
         newCheckBox.addEventListener('change', function(el) {
             makeplot();
         }, false);
         var newtext = document.createTextNode(stuff.Classifier);
-        var div = document.createElement('div');
-        div.appendChild(newCheckBox);
-        div.appendChild(newtext);
-        parentElement.appendChild(div);
+        parentElement.appendChild(newCheckBox);
+        parentElement.appendChild(newtext);
+	if((1+i) % 4 == 0){
+	    parentElement.appendChild(document.createElement('br'));
+	    }
     };
 
     
@@ -151,6 +154,7 @@ d3.csv("fit_metrics.csv", function(error, data) {
 
 
 });
+
 
 
 
@@ -262,5 +266,20 @@ d3.selectAll('.classifier_ctrl').on('change', function() {
 
 
 
+checkall = function(){
+    var checkboxes = new Array();
+    boxes = document.getElementsByName('button');
+    for(var i = 0; i < boxes.length;i++){
+	boxes[i].checked = true;
+    }
+};
 
+
+uncheckall = function(){
+    var checkboxes = new Array();
+    boxes = document.getElementsByName('button');
+    for(var i = 0; i < boxes.length;i++){
+	boxes[i].checked = false;
+    }
+};
 
