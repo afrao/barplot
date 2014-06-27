@@ -52,23 +52,10 @@ body {
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
   <h1> Screwdriver with no head </h1><br>
+<button type="button" onclick="makeplot()">Update plots</button>
   <h2> Classifiers </h2>
-<div>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="BernoulliNB" checked>BernoulliNB 
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="MultinomialNB" checked>MultinomialNB 
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="NearestCentroid" checked>NearestCentroid 
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD w/ elastic-net penalty" checked>SGD w/ elatistic-net penalty <br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD (L1 penalty)" checked>SGD (L1 penalty)
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="SGD (L2 penalty)" checked>SGD (L2 penalty)
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L1 feature select)" checked>LinearSVC (L1 feature select)
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L1 penalty)" checked>LinearSVC (L1 penalty)<br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LinearSVC (L2 penalty)" checked>LinearSVC (L2 penalty)
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="PassiveAggressiveClassifier" checked>PassiveAggressiveClassifier
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="Perceptron" checked>Perceptron
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="RidgeClassifier" checked>RidgeClassifier<br>
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LogisticRegression (L1 feature select)" checked>LogisticRegression (L1 feature select)
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LogisticRegression (L1 penalty)" checked>LogisticRegression(L1 penalty)
-<input class="classifier_ctrl" type="checkbox" name="classifier" value="Classifier" id="LogisticRegression (L2 penalty)" checked>LogisticRegression (L2 penalty)
+<div id="classifiers">
+
 </div>
 
   <h2> Metrics </h2>
@@ -78,8 +65,8 @@ body {
 <input class="classifier_ctrl" type="checkbox" name="value" value="stat" id="Test.Time" checked>Test.Time
 </div>
 
-<button type="button" onclick="test()">all</button>
-<button type="button" onclick="makeplot()">Update plots</button>
+
+
 
 
 <script src="index.js"></script>
