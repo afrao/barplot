@@ -56,20 +56,24 @@ svg.selectAll("*").remove();
 
 d3.csv("fit_metrics.csv", function(error, data) {
 
-    console.log(data);
-    console.log(data[0].Classifier)
+    //console.log(data);
+    //console.log(data[0].Classifier)
 
     for(var i = 0; i < data.length; i++){
-	stuff = data[i];
-	console.log(stuff);
-    	var newCheckBox = document.createElement('input');
-    	newCheckBox.type = 'checkbox';
-    	newCheckBox.id = stuff.Classifier; // need unique Ids!
-	newCheckBox.className = 'classifier_ctrl';
-	var newtext = document.createTextNode(stuff.Classifier);
-	newCheckBox.appendChild(newtext);
-	parentElement.appendChild(newCheckBox);
-
+        stuff = data[i];
+        //console.log(stuff);
+        var newCheckBox = document.createElement('input');
+        newCheckBox.type = 'checkbox';
+        newCheckBox.id = stuff.Classifier; // need unique Ids!
+        newCheckBox.className = 'classifier_ctrl';
+        newCheckBox.addEventListener('change', function(el) {
+            makeplot();
+        }, false);
+        var newtext = document.createTextNode(stuff.Classifier);
+        var div = document.createElement('div');
+        div.appendChild(newCheckBox);
+        div.appendChild(newtext);
+        parentElement.appendChild(div);
     };
 
     
